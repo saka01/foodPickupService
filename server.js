@@ -61,16 +61,16 @@ app.use("/admin", adminRoutes);
 app.get("/", (req, res) => {
   if (req.session.loginType === "admin") {
     adminQueries.findAdminbyId(req.session.userId)
-    .then((response) => {
-      const template = {user: response, loginType: "admin"}
-      res.render("index", template);
-    })
-  }else{
+      .then((response) => {
+        const template = {user: response, loginType: "admin"};
+        res.render("index", template);
+      });
+  } else {
     findUser.getOneCustomer(req.session.userId)
-    .then((response) => {
-      const template = {user: response, loginType: "customer"}
-    res.render("index", template);
-    })
+      .then((response) => {
+        const template = {user: response, loginType: "customer"};
+        res.render("index", template);
+      });
   }
 
 

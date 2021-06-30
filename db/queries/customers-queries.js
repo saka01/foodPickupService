@@ -11,9 +11,9 @@ const findCustomerByEmail = (email) => {
   return db.query('SELECT * FROM customers WHERE email = $1;', [email])
     .then((response) => {
       // if (response.rows.length === 0) {
-        return response.rows[0];
+      return response.rows[0];
       // }
-        // return true;
+      // return true;
     });
 };
 

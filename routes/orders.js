@@ -17,6 +17,10 @@ router.get("/", (req, res) => {
     });
 });
 
+router.post("/", (req, res) => {
+  console.log(res.body);
+});
+
 router.get("/:id", (req, res) => {
   ordersQueries.getSpecificOrder(req.session.userId, req.params.id)
     .then((order) => {

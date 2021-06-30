@@ -12,7 +12,7 @@ const ordersQueries = require('../db/queries/orders-queries');
 
 //GET
 router.get("/", (req, res) => {
-  res.render("adminLogin")
+  res.render("adminLogin");
 });
 
 router.post("/", (req, res) => {
@@ -21,9 +21,9 @@ router.post("/", (req, res) => {
       if (response) {
         req.session.loginType = "admin";
         req.session.userId = response.id;
-        return res.redirect("/")
-      }else{
-        return res.send("not logged in")
+        return res.redirect("/");
+      } else {
+        return res.send("not logged in");
       }
     });
 });
@@ -33,8 +33,8 @@ router.get("/unfulfilledorders", (req, res) => {
   ordersQueries.getAllUnfulfilledOrders()
     .then((response) => {
       res.json(response);
-    })
-})
+    });
+});
 
 
 module.exports = router;
